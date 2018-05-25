@@ -6,22 +6,21 @@ import { Component, OnInit } from '@angular/core';
     <h2>
       Welcome {{name}}!
     </h2>
-    <button (click)="onClick($event)" >Greet</button>
-    <button (click)="greeting = 'Thanks for visiting !'" >Greet</button>
-    <h2>{{greeting}}</h2>
+    <input #myInput type="text" />
+    <button (click)="logFn(myInput)">Log</button>
   `,
   styleUrls: []
 })
 export class TestComponent implements OnInit {
 
   public name = 'Piyush';
-  public greeting = '';
+
   constructor() { }
 
   ngOnInit() {
   }
-  onClick(event){
-    this.greeting = 'Welcome to Angular 6';
-    console.log(event);
+  logFn(myInput){
+    console.log(myInput);
+    console.log(myInput.value);
   }
 }
